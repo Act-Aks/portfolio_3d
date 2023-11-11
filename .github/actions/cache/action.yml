@@ -1,5 +1,5 @@
-name: 'Checkout code and install dependencies'
-description: 'Checkout code and install dependencies with caching. If the dependencies are not cached, it will install them. (default cached: true)'
+name: 'Get and install dependencies'
+description: 'Get and install dependencies to cache (default cached: true)'
 
 inputs:
   cached:
@@ -10,9 +10,6 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-
     - name: Setup node
       uses: actions/setup-node@v4
       with:

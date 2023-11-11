@@ -18,7 +18,10 @@ jobs:
     outputs: steps.upload-dist.outputs.dist
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code and install dependencies
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
         uses: ./.github/actions/cache
 
       - name: Build app
@@ -39,7 +42,10 @@ jobs:
     if: github.ref == 'refs/heads/gh-pages'
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code and install dependencies
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
         uses: ./.github/actions/cache
 
       - name: Download dist
