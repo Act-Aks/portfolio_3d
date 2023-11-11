@@ -5,7 +5,7 @@ import { PointMaterial, Points, Preload } from '@react-three/drei'
 import { Canvas, useFrame } from '@react-three/fiber'
 
 const Stars = (props: any) => {
-  const ref = useRef()
+  const ref = useRef() as any
   const spheres = random.inSphere(new Float32Array(5000), { radius: 1.2 })
 
   useFrame((_, delta) => {

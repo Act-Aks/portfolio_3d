@@ -1,4 +1,5 @@
 {
+  "homepage": "http://Act-Aks.github.io/portfolio_3d",
   "name": "3d_portfolio",
   "private": true,
   "version": "0.0.1",
@@ -10,7 +11,9 @@
     "lint:fix": "eslint . --fix",
     "format": "prettier --config .prettierrc.cjs --ignore-path .prettierignore . --check",
     "format:fix": "prettier --config .prettierrc.cjs --ignore-path .prettierignore . --write",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "vite build",
+    "depoly:gh": "gh-pages -d dist"
   },
   "dependencies": {
     "@emailjs/browser": "^3.11.0",
@@ -38,6 +41,7 @@
     "eslint": "^8.45.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
+    "gh-pages": "^6.0.0",
     "postcss": "^8.4.31",
     "prettier": "^3.0.3",
     "tailwindcss": "^3.3.5",
