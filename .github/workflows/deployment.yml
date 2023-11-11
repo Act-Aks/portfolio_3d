@@ -10,7 +10,7 @@ on:
 jobs:
   lint-check:
     name: Lint Check
-    uses: ./.github/workflows/lint.yml
+    uses: ./.github/workflows/lint
 
   build:
     needs: [lint-check]

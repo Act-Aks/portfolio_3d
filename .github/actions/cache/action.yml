@@ -1,11 +1,5 @@
 name: 'Get and install dependencies'
-description: 'Get and install dependencies to cache (default cached: true)'
-
-inputs:
-  cached:
-    description: 'Whether the dependencies to cached or not.'
-    required: false
-    default: 'true'
+description: 'Get and install dependencies to cache'
 
 runs:
   using: 'composite'

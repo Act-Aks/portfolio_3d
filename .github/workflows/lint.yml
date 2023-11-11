@@ -10,8 +10,6 @@ on:
 
 jobs:
   lint:
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     name: Code Quality Check
     runs-on: ubuntu-latest
     steps:
@@ -27,7 +25,7 @@ jobs:
       # - name: Install dependencies
       #   run: yarn install --immutable
       - name: Checkout code and install dependencies
-        uses: ./.github/actions/cache/action
+        uses: ./.github/actions/cache
 
       - name: Run format and lint
         run: yarn cq
