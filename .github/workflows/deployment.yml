@@ -15,7 +15,8 @@ jobs:
   build:
     needs: [lint-check]
     name: Build app
-    outputs: dist
+    outputs:
+      dist: ${{ steps.upload-dist.outputs.dist }} # path to dist
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
