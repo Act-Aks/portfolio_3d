@@ -13,6 +13,7 @@
     "format": "prettier --config .prettierrc.cjs --ignore-path .prettierignore . --check",
     "format:fix": "prettier --config .prettierrc.cjs --ignore-path .prettierignore . --write",
     "preview": "vite preview",
+    "predeploy": "vite build",
     "deploy:gh": "gh-pages -d dist"
   },
   "dependencies": {
