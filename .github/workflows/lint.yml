@@ -24,7 +24,7 @@ jobs:
 
       # - name: Install dependencies
       #   run: yarn install --immutable
-      - name: Checkout code and install dependencies
+      - name: Install dependencies
         uses: ./.github/actions/cache
 
       - name: Run format and lint

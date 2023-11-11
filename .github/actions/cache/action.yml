@@ -12,3 +12,4 @@ runs:
 
     - name: Install dependencies
       run: yarn install --immutable
+      shell: bash
