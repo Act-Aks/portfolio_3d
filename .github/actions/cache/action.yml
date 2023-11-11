@@ -1,10 +1,12 @@
 name: 'Checkout code and install dependencies'
 description: 'Checkout code and install dependencies with caching. If the dependencies are not cached, it will install them. (default cached: true)'
+
 inputs:
   cached:
     description: 'Whether the dependencies to cached or not.'
     required: false
     default: 'true'
+
 runs:
   using: 'composite'
   steps:

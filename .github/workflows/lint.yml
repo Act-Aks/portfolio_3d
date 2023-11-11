@@ -12,7 +12,7 @@ jobs:
   lint:
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    name: Lint Check
+    name: Code Quality Check
     runs-on: ubuntu-latest
     steps:
       # - name: Checkout code
