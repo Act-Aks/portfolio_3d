@@ -13,7 +13,7 @@
     "format:fix": "prettier --config .prettierrc.cjs --ignore-path .prettierignore . --write",
     "preview": "vite preview",
     "predeploy": "vite build",
-    "depoly": "gh-pages -d dist"
+    "deploy:gh": "gh-pages -d dist"
   },
   "dependencies": {
     "@emailjs/browser": "^3.11.0",
