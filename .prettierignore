@@ -1,0 +1,21 @@
+node_modules
+.husky
+public
+
+# Lint
+.eslintignore
+
+# macOS
+.DS_Store
+
+# Temporary files created by Metro to check the health of the file watcher
+.metro-health-check*
+
+# Environment files
+.env.local
+.env
+
+yarn.lock
+*.lock
+
+README.md

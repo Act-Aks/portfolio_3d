@@ -1,0 +1,13 @@
+node_modules
+.husky
+public
+
+.prettierignore
+.prettierrc
+
+.eslintrc.cjs
+
+.env.local
+
+yarn.lock
+*.lock
