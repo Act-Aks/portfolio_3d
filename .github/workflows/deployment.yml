@@ -15,7 +15,7 @@ jobs:
   build:
     needs: [lint-check]
     name: Build app
-    outputs: steps.upload-dist.outputs.dist
+    outputs: dist
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -32,14 +32,16 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: dist
-          path: dist
+          path: |
+            dist
+            package.json
+        run: echo ${{ steps.upload-dist.outputs.dist }}
 
   deploy:
     needs: [build]
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     name: Deploy to GitHub Pages
-    if: github.ref == 'refs/heads/gh-pages'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
