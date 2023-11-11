@@ -7,12 +7,12 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "cq": "yarn format && yarn lint",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "lint:fix": "eslint . --fix",
     "format": "prettier --config .prettierrc.cjs --ignore-path .prettierignore . --check",
     "format:fix": "prettier --config .prettierrc.cjs --ignore-path .prettierignore . --write",
     "preview": "vite preview",
-    "predeploy": "vite build",
     "deploy:gh": "gh-pages -d dist"
   },
   "dependencies": {

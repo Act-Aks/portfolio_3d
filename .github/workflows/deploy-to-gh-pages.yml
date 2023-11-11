@@ -1,0 +1,52 @@
+name: 'Deploy to GitHub Pages'
+
+on:
+  push:
+    branches:
+      - master
+      - gh-pages
+  workflow_dispatch:
+
+jobs:
+  lint-check:
+    name: Lint Check
+    uses: ./.github/workflows/lint.yml
+
+  build:
+    needs: [lint-check]
+    name: Build app
+    outputs: steps.upload-dist.outputs.dist
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code and install dependencies
+        uses: ./.github/actions/cache
+
+      - name: Build app
+        run: yarn build
+
+      - name: Upload dist
+        id: upload-dist
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist
+          path: dist
+
+  deploy:
+    needs: [build]
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    name: Deploy to GitHub Pages
+    if: github.ref == 'refs/heads/gh-pages'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code and install dependencies
+        uses: ./.github/actions/cache
+
+      - name: Download dist
+        uses: actions/download-artifact@v3
+        with:
+          name: dist
+          path: dist
+
+      - name: Run Deploy
+        run: yarn deploy:gh

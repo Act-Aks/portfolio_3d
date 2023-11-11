@@ -1,0 +1,21 @@
+name: 'Checkout code and install dependencies'
+description: 'Checkout code and install dependencies with caching. If the dependencies are not cached, it will install them. (default cached: true)'
+inputs:
+  cached:
+    description: 'Whether the dependencies to cached or not.'
+    required: false
+    default: 'true'
+runs:
+  using: 'composite'
+  steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Setup node
+      uses: actions/setup-node@v4
+      with:
+        cache: 'yarn'
+        node-version: 20
+
+    - name: Install dependencies
+      run: yarn install --immutable
