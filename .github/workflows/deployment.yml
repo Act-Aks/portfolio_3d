@@ -35,6 +35,8 @@ jobs:
           path: |
             dist
             package.json
+
+      - name: Output dist
         run: echo ${{ steps.upload-dist.outputs.dist }}
 
   deploy:
