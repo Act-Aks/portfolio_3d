@@ -12,5 +12,5 @@ export default defineConfig({
       '@public': path.relative(__dirname, './public/'),
     },
   },
-  base: './portfolio_3d/',
+  base: './',
 })
