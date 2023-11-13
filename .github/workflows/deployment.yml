@@ -4,11 +4,10 @@ on:
   push:
     branches:
       - master
-        ignor-paths:
-          - .github/workflows
       - gh-pages
-        ignor-paths:
-          - .github/workflows
+    paths-ignore:
+      - .github/workflows
+
   workflow_dispatch:
 
 jobs:
