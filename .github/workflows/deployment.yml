@@ -5,6 +5,9 @@ on:
     branches:
       - master
       - gh-pages
+    paths-ignore:
+      - .github/workflows
+
   workflow_dispatch:
 
 jobs:
