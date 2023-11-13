@@ -8,11 +8,11 @@ runs:
       id: cache
       uses: actions/setup-node@v4
       with:
-        cache: 'npm'
+        cache: 'yarn'
         cache-dependency-path: '**/yarn.lock'
         node-version: 20
 
     - name: Install dependencies
       # if: steps.cache.outputs.cache-hit != 'true'
-      run: yarn install --immutable
+      run: yarn --frozen-lockfile
       shell: bash
