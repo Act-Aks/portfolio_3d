@@ -53,7 +53,8 @@ jobs:
             package.json
 
       - name: Output dist
-        run: echo ${{ environment.url }}
+        run: |
+          echo "Uploaded dist - ${{ env.GITHUB_TOKEN }}"
 
       - name: Deploy to GitHub Pages
         id: deployment
