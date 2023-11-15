@@ -4,20 +4,29 @@ on:
   push:
     branches:
       - master
-      - gh-pages
     paths-ignore:
       - .github/workflows
 
   workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
   lint-check:
     name: Lint Check
     uses: ./.github/workflows/lint.yml
 
-  build:
+  deploy:
     needs: [lint-check]
-    name: Build app
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    name: Build and deploy to GitHub Pages
     outputs:
       dist: ${{ steps.upload-dist.outputs.dist }} # path to dist
     runs-on: ubuntu-latest
@@ -31,6 +40,9 @@ jobs:
       - name: Build app
         run: yarn predeploy
 
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+
       - name: Upload dist
         id: upload-dist
         uses: actions/upload-artifact@v3
@@ -41,26 +53,8 @@ jobs:
             package.json
 
       - name: Output dist
-        run: echo ${{ steps.upload-dist.outputs.dist }}
+        run: echo ${{ environment.url }}
 
-  deploy:
-    needs: [build]
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    name: Deploy to GitHub Pages
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Install dependencies
-        uses: ./.github/actions/cache
-
-      - name: Download dist
-        uses: actions/download-artifact@v3
-        with:
-          name: dist
-          path: dist
-
-      # - name: Run Deploy
-      #   run: yarn deploy:gh
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
