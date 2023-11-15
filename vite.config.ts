@@ -13,7 +13,7 @@ export default defineConfig({
       '@public': path.relative(__dirname, './public/'),
     },
   },
-  base: './portfolio_3d/',
+  base: 'https://act-aks.github.io/portfolio_3d/',
   server: {
     port: 3000,
     https: true,

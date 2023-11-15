@@ -1,6 +1,10 @@
 name: Dummny Deployment
 on:
 jobs:
+  dummy:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Dummy!"
 # on:
 #   push:
 #     branches:
