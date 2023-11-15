@@ -1,12 +1,13 @@
 {
-  "homepage": "http://act-aks.github.io/portfolio_3d",
   "name": "3d_portfolio",
   "private": true,
   "version": "0.0.1",
   "type": "module",
+  "homepage": "https://act-aks.github.io/portfolio_3d",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "build:dev": "tsc && vite build --mode development",
     "cq": "yarn format && yarn lint",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "lint:fix": "eslint . --fix",

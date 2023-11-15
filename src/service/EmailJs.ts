@@ -1,9 +1,9 @@
 import emailJs from '@emailjs/browser'
 
 const Env = {
-  EMAILJS_SERVICE_ID: import.meta.env.VITE_KEY_EMAILJS_SERVICE_ID || '',
-  EMAILJS_TEMPLATE_ID: import.meta.env.VITE_KEY_EMAILJS_TEMPLATE_ID || '',
-  EMAILJS_PUBLIC_KEY: import.meta.env.VITE_KEY_EMAILJS_PUBLIC_KEY || '',
+  EMAILJS_SERVICE_ID: import.meta.env.VITE_EMAILJS_SERVICE_ID || '',
+  EMAILJS_TEMPLATE_ID: import.meta.env.VITE_EMAILJS_TEMPLATE_ID || '',
+  EMAILJS_PUBLIC_KEY: import.meta.env.VITE_EMAILJS_PUBLIC_KEY || '',
 }
 export type ContactFormData = {
   name: string
